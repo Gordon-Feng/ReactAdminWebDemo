@@ -32,7 +32,18 @@ const SchoolManage = (props) => {
     }, [] )
 
     return (
-        <Table columns={columns} dataSource={schoolList} pagination={{ pageSize: pageInfo.limit, total: pageInfo.total }} scroll={{ y: 743 }} />
+        <Table 
+            columns={columns} 
+            dataSource={schoolList} 
+            pagination={{ pageSize: pageInfo.limit, total: pageInfo.total }} 
+            scrollToFirstRowOnChange={true} 
+            rowKey={record => { return record.school_id }}
+            scroll={{ y: 'calc(100vh - 14.5em)' }}
+            onChange={ (pagination) => {
+                setPageInfo({...pageInfo, page: pagination.current})
+                getSchoolList()
+            } }
+        />
     )
 }
 

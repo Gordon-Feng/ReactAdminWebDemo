@@ -14,6 +14,7 @@ const Login = (props) => {
         if (result) {
             message.success(`你好 ${result.data.account.account}, 登录成功`)
             Storage.set('token', result.data.token)
+            props.history.push('/')
         }
     }
 
