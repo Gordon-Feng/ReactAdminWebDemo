@@ -1,5 +1,6 @@
 import React from 'react'
-import { Layout } from 'antd'
+import { Layout, Button } from 'antd'
+import { PoweroffOutlined } from '@ant-design/icons';
 import { Route, Switch } from 'react-router-dom'
 import '../styles/layout.scss'
 import AsideMenu from '../views/components/Menu'
@@ -19,6 +20,15 @@ const IndexLayout = (props) => {
         <Layout className='app'>
             <Header className='header'>
                 <img src={logoImg} alt=''/>
+                <Button 
+                    type="primary" danger 
+                    icon={<PoweroffOutlined />} 
+                    style={{margin: 'auto 0'}} 
+                    onClick={() => {
+                        Storage.remove('token')
+                        props.history.push('/')
+                    }}
+                />
             </Header>
             <Layout style={{ marginLeft: '200px' }}>
                 <Sider className='aside'>
