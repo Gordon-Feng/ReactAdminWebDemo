@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { message } from 'antd'
 
 // 服务器api地址
 const ApiUrl = 'http://manage.likun1997.com'
@@ -8,17 +7,17 @@ const ImgUrl = 'https://www.likun1997.com'
 
 // http请求错误处理
 const errorHandler = (error) => {
-    message.error(error.message)
+    alert(error.message)
     return { status: -200, msg: error.message }
 }
 
 // http请求结果过滤
 const responseHandler = (res) => {
     if (res.status && res.status >= 400) {
-        message.error(res.data.msg)
+        alert(res.data.msg)
     } else {
         if (res.data.status !== 200) {
-            message.error(res.data.msg)
+            alert(res.data.msg)
         } else {
             return res.data
         }

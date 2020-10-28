@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import isSpinning from './reducers/spinning'
+import fullScreenSpin from './fullScreenSpin'
 
 export default combineReducers({
-    isSpinning
+    fullScreenSpin
 })

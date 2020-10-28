@@ -1,27 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import { Spin } from 'antd';
-import { connect } from 'react-redux'
-import Login from './views/Login'
-import Index from './views/Index'
-import './styles/App.scss'
-import './styles/base.scss'
-import 'animate.css'
+import { Route, Switch } from 'react-router-dom'
+// import { connect } from 'react-redux'
+import Login from './views/pages/login'
+import SchoolManage from './views/pages/schoolManage'
 
-const App = (props) => (
-    <Spin spinning={props.isSpinning}>
-        <BrowserRouter>
-            <Switch>
-                <Route path='/' exact render={() => <Redirect to='/school-manage' />}></Route>
-                <Route exact path='/login' component={Login}></Route>
-                <Route component={Index}></Route>
-            </Switch>
-        </BrowserRouter>
-    </Spin>
+const App = () => (
+    <Switch>
+        <Route exact path='/login' component={Login}></Route>
+        <Route exact path='/school-manage' component={SchoolManage}></Route>
+    </Switch>
 )
 
-const stateToProps = state => ({
-    isSpinning: state.isSpinning
-})
-
-export default connect(stateToProps)(App)
+export default App
